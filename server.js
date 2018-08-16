@@ -20,6 +20,8 @@ const localSignupStrategy = require('./passport/local-signup');
 const localLoginStrategy = require('./passport/local-login');
 passport.use('local-signup', localSignupStrategy);
 passport.use('local-login', localLoginStrategy);
+
+
 // POST to /api/users will create a new user
 app.post('/api/users', (req, res, next) => {
   console.log(req.body);
