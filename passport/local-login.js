@@ -38,9 +38,10 @@ module.exports = new PassportLocalStrategy({
 
         return done(error);
       }
-
+      console.log(user);
       const payload = {
-        sub: user._id
+        sub: user._id,
+        firstName: user.firstName
       };
 
       console.log(config.jwtSecret);

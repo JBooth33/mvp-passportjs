@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Auth from '../../utils/Auth';
+import { Link } from 'react-router-dom'
 
 class Nav extends Component {
   
@@ -50,6 +51,7 @@ class Nav extends Component {
         </ul>
         <span>
           <a className="nav-link" href="/login">Login</a>
+          {/* <Link className="nav-link" to="/login">Login</Link> */}
         </span>
         <span>
           <a className="nav-link" href="/signup">Sign up</a>

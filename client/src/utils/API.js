@@ -3,8 +3,12 @@ import axios from "axios";
 export default {
   
   // Gets all users
-  getUsers: function() {
-    return axios.get("/api/users");
+  getUsers: function(token) {
+    return axios.get("/api/users", {
+      headers: {
+        Authorization: 'Bearer ' + token
+      }
+    })
   },
   // Gets the user with the given id
   getUser: function(id) {

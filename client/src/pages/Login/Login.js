@@ -22,14 +22,12 @@ class Login extends Component {
       password: this.state.password
     };
 
-    API.authenticateUser(userData)
+    return API.authenticateUser(userData)
       .then(res => {
         // clear error message
         this.setState({ errorMessage: null });
         Auth.authenticateUser(res.data.token);
 
-        // hard redirect to / to reload all the state and nav
-        window.location.href = "/";
       })
       .catch(err => this.setState({ errorMessage: err.response.data.message }));
   };
@@ -47,12 +45,26 @@ class Login extends Component {
 
   handleLogin = event => {
     event.preventDefault();
+    const { history } = this.props;
     if (this.state.email && this.state.password && this.state.password.length >= 6) {
-      this.authenticate();
+      this.authenticate()
+        .then(() => {
+          console.log(this.props);
+          this.props.onLogin(Auth.getToken());
+          
+          history.goBack()
+        }
+        );
     } else {
-      this.setState({ errorMessage: "Please enter valid username and password to sign in."})
+      this.setState({ errorMessage: "Please enter valid username and password to sign in." })
     }
   };
+
+
+  // handleLoginSubmit = event => {
+  //   event.preventDefault();
+
+  // }
 
   render() {
     return (
@@ -82,7 +94,7 @@ class Login extends Component {
           />
           <div className="checkbox mb-3">
             <label>
-              <input type="checkbox" value="remember-me"/> Remember me
+              <input type="checkbox" value="remember-me" /> Remember me
             </label>
           </div>
           <div className="checkbox mb-3 text-danger">
@@ -92,7 +104,7 @@ class Login extends Component {
             <button
               disabled={!(this.state.email && this.state.password && this.state.password.length >= 6)}
               onClick={this.handleLogin}
-              className="btn btn-lg btn-primary btn-block"
+              className="btn btn-lg btn-primary btn-block" id="login-submit-button"
             >
               Login
             </button>

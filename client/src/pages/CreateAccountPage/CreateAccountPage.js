@@ -33,8 +33,6 @@ class CreateAccountPage extends Component {
   handleLogin = (event) => {
     event.preventDefault();
     console.log("Button Clicked");
-    //  const { companyName, companyAddress1, companyAddress2, companyCity, companyState, companyZip, companyURL, companyContact, companyContactPhone,
-    //   userFirstName, userLastName, userTitle, userRole, userEmail, userPhone, password, confirmPassword } = this.state;
     const { history } = this.props;
     // post an auth request
     API.saveUser({

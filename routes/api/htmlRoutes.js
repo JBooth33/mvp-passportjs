@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require("path");
 const router = express.Router();
+const passport = require('passport')
 
 // Serve up static assets (usually on heroku)
 router.use(express.static("client/public"));
