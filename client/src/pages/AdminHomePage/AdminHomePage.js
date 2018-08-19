@@ -28,7 +28,7 @@ class AdminHomePage extends Component {
     }
     render() {
         const user = this.state.userToken; // get the user prop from props
-        const { stuff } = this.state; // get stuff from state
+        //const { stuff } = this.state; // get stuff from state
 
         return (
             <Fragment>
