@@ -3,10 +3,12 @@ import Auth from '../../utils/Auth';
 import { List, ListItem } from 'material-ui/List';
 import { withUser } from '../../services/withUser';
 import API from "../../utils/API";
+import "../../css/main.css";
+import "../../css/noscript.css";
 
 class AdminHomePage extends Component {
     state = {
-        stuff: null,
+        //stuff: null,
         userToken: null,
     }
 
@@ -17,10 +19,11 @@ class AdminHomePage extends Component {
             return;
         }
         const userToken = Auth.decodeToken(userTokenEncoded);
-        this.setState({userToken})
+        this.setState({ userToken })
 
 
-        API.getUsers(userTokenEncoded).then(res => console.log(res)) 
+        API.getUsers(userTokenEncoded).then(res => console.log(res))
+
 
     }
     render() {
@@ -29,16 +32,56 @@ class AdminHomePage extends Component {
 
         return (
             <Fragment>
-                {user && stuff &&
-                    <div>
+                {user &&
+                    <div className="card">
                         <h1>Welcome back, {user.firstName}!</h1>
-                        <List>
-                            {stuff.map((s, i) => <ListItem key={i} primaryText={s} />)}
-                        </List>
+                        <body className="is-preload">
+                            <div id="wrapper">
+                                <div id="main">
+                                    <div className="inner">
+                                        <section className="tiles">
+                                            <article className="style1">
+                                                <span className="image">
+                                                    <img src="assets/images/pic01.jpg" alt="" />
+                                                </span>
+                                                <a href="generic.html">
+                                                    <h2>Users</h2>
+                                                    <div className="content">
+                                                        <p>Manage User Information.</p>
+                                                    </div>
+                                                </a>
+                                            </article>
+                                            <article className="style2">
+                                                <span className="image">
+                                                    <img src="assets/images/pic02.jpg" alt="" />
+                                                </span>
+                                                <a href="generic.html">
+                                                    <h2>Partners</h2>
+                                                    <div className="content">
+                                                        <p>Manage Partner Information. </p>
+                                                    </div>
+                                                </a>
+                                            </article>
+                                            <article className="style3">
+                                                <span className="image">
+                                                    <img src="assets/images/pic03.jpg" alt="" />
+                                                </span>
+                                                <a href="generic.html">
+                                                    <h2>Roles</h2>
+                                                    <div className="content">
+                                                        <p>Manage Roles and User Access.</p>
+                                                    </div>
+                                                </a>
+                                            </article>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </body>
                     </div>
-                }
-                {user && !stuff &&
-                    <div>Hold on, looking for your stuff...</div>
+                    // }
+                    // {user && !stuff &&
+                    //     <div>Hold on, looking for your stuff...</div>
                 }
                 {!user &&
                     <div>Hey! I don't recognize you! Register and log in using the link above</div>
