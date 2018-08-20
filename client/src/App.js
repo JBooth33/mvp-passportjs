@@ -10,6 +10,7 @@ import SignUp from "./pages/SignUp";
 import Dummy from "./components/Dummy";
 import CreateAccountForm from "./pages/CreateAccountPage";
 import AdminHomePage from "./pages/AdminHomePage";
+import HomePage from "./pages/Homepage";
 import UserAdminPage from "./pages/UsersAdminPage";
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
@@ -45,7 +46,7 @@ class App extends Component {
         <Router>
           <MuiThemeProvider>
             <Switch>
-              <Route exact path="/" userToken={this.state.userToken} component={Dummy} />
+              <Route exact path="/" userToken={this.state.userToken} component={HomePage} />
               {/* <Route exact path="/home" userToken={this.state.userToken} component={Dummy} /> */}
               {/* <PrivateRoute exact path="/protected" component={Users} /> */}
               <Route exact path="/users" userToken={this.state.userToken} component={Users} />
