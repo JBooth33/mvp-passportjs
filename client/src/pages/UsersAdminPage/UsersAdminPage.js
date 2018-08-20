@@ -1,17 +1,19 @@
 import React, { Component, Fragment } from 'react';
-import { Grid, Row, Col } from 'react-flexbox-grid';
-import { List, ListItem } from 'material-ui/List';
-import TextField from 'material-ui/TextField';
+// import { Grid, Row, Col } from 'react-flexbox-grid';
+// import { List, ListItem } from 'material-ui/List';
+// import TextField from 'material-ui/TextField';
 import API from "../../utils/API";
-import { withUser } from '../../services/withUser';
+// import { withUser } from '../../services/withUser';
 import Auth from '../../utils/Auth';
 import "../../css/main.css";
 import "../../css/noscript.css";
+import EnhancedTable from "./UserTable"
 
 class UserAdminPage extends Component {
 
     state = {
         userToken: null,
+        userData: []
     }
 
     componentDidMount() {
@@ -24,8 +26,8 @@ class UserAdminPage extends Component {
         this.setState({ userToken })
 
 
-        API.getUsers(userTokenEncoded).then(res => console.log(res))
-
+        API.getUsers(userTokenEncoded).then(res => this.state.userData.push({res}))
+        console.log("User Data" + this.state.userData)
 
     }
 
@@ -36,7 +38,10 @@ class UserAdminPage extends Component {
             <Fragment>
                 {user &&
                     <div>
-                        <h1>Here are the Users: {user.firstName}!</h1>
+                        <h1>Here are the Users {user.firstName}!</h1>
+
+                        <EnhancedTable/>
+
                     </div>
                 }
                 {!user &&

@@ -45,8 +45,8 @@ class App extends Component {
         <Router>
           <MuiThemeProvider>
             <Switch>
-              <Route exact path="/" component={Login} />
-              <Route exact path="/home" userToken={this.state.userToken} component={Dummy} />
+              <Route exact path="/" userToken={this.state.userToken} component={Dummy} />
+              {/* <Route exact path="/home" userToken={this.state.userToken} component={Dummy} /> */}
               {/* <PrivateRoute exact path="/protected" component={Users} /> */}
               <Route exact path="/users" userToken={this.state.userToken} component={Users} />
               <Route exact path="/create" component={CreateAccountForm} />

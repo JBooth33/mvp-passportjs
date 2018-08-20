@@ -44,7 +44,7 @@ class AdminHomePage extends Component {
                                                 <span className="image">
                                                     <img src="assets/images/pic01.jpg" alt="" />
                                                 </span>
-                                                <a href="generic.html">
+                                                <a href="/admin/users">
                                                     <h2>Users</h2>
                                                     <div className="content">
                                                         <p>Manage User Information.</p>
@@ -55,7 +55,7 @@ class AdminHomePage extends Component {
                                                 <span className="image">
                                                     <img src="assets/images/pic02.jpg" alt="" />
                                                 </span>
-                                                <a href="generic.html">
+                                                <a href="/admin/partners">
                                                     <h2>Partners</h2>
                                                     <div className="content">
                                                         <p>Manage Partner Information. </p>
@@ -66,7 +66,7 @@ class AdminHomePage extends Component {
                                                 <span className="image">
                                                     <img src="assets/images/pic03.jpg" alt="" />
                                                 </span>
-                                                <a href="generic.html">
+                                                <a href="/admin/roles">
                                                     <h2>Roles</h2>
                                                     <div className="content">
                                                         <p>Manage Roles and User Access.</p>
