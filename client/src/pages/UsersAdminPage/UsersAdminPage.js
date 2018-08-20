@@ -14,18 +14,17 @@ class UserAdminPage extends Component {
     state = {
         userToken: null,
         userData: []
-    }
-
-    componentDidMount() {
-        
-        // API.getUsers(userTokenEncoded).then(res => console.log(res.data))
-        // console.log("User Data" + this.state.userData)
-
-        this.loadUsers();
     };
 
-    loadUsers = () => {
+    componentDidMount() {
 
+        
+        this.loadUsers();
+        //console.log(this.state.users)
+    };
+    
+    loadUsers = () => {
+        
         const userTokenEncoded = Auth.getToken()
         // only try loading stuff if the user is logged in.
         if (!userTokenEncoded) {
@@ -33,15 +32,29 @@ class UserAdminPage extends Component {
         }
         const userToken = Auth.decodeToken(userTokenEncoded);
         this.setState({ userToken })
+        
+        // const userData = API.getUsers(userTokenEncoded);
+        // this.setState({ userData })
+        // console.log(userData);
 
-        API.getUsers(userTokenEncoded).then(res => 
-            this.setState({ userData: res.data })
-        )
-        console.log(this.state.userData)
-    }
+        // API.getUsers(userTokenEncoded).then(res => console.log(res.data))
+        // console.log("User Data" + this.state.userData)
+
+
+        API.getUsers(userTokenEncoded)
+            .then(res =>
+                {console.log(res.data),
+                this.setState({ userData: res.data })}
+            )
+            .catch(err => console.log(err)
+        );
+
+        console.log(this.state.userData);    
+    };
 
     render() {
         const user = this.state.userToken; // get the user prop from props
+        const users = this.state.userData
 
         return (
             <Fragment>
@@ -49,7 +62,7 @@ class UserAdminPage extends Component {
                     <div>
                         <h1>Here are the Users {user.firstName}!</h1>
 
-                        <EnhancedTable/>
+                        <EnhancedTable />
 
                     </div>
                 }
