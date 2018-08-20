@@ -26,8 +26,8 @@ function createData(firstName, lastName, phoneNumber, title, role, emailAddress,
 }
 
 const rows = [
-    // createData(111, 'Jonathon', 'Engelien', 7153237605, 'CEO', 'Admin', 'jonathon.engelien@gmail.com', 'active'),
-    // createData(112, 'James', 'Smith', 7153237605, 'Accountant', 'Admin', 'jonathon.engelien@gmail.com', 'active'),
+    createData(111, 'Jonathon', 'Engelien', 7153237605, 'CEO', 'Admin', 'jonathon.engelien@gmail.com', 'active'),
+    createData(112, 'James', 'Smith', 7153237605, 'Accountant', 'Admin', 'jonathon.engelien@gmail.com', 'active'),
 ];
 
 function SimpleTable(props) {
