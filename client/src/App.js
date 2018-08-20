@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import Users from "./pages/Users";
 import NoMatch from "./pages/NoMatch";
 import Nav from "./components/Nav";
+import Footer from "../src/components/Footer"
 import Login from "./pages/Login";
 import Logout from "./components/Logout";
 import SignUp from "./pages/SignUp";
@@ -62,6 +63,7 @@ class App extends Component {
             </Switch>
           </MuiThemeProvider>
         </Router>
+        <Footer />
       </div>
     );
   }
