@@ -10,6 +10,7 @@ import Logout from "./components/Logout";
 import SignUp from "./pages/SignUp";
 import Dummy from "./components/Dummy";
 import CreateAccountForm from "./pages/CreateAccountPage";
+import CreateQuotePage from "./pages/RequestQuote";
 import AdminHomePage from "./pages/AdminHomePage";
 import HomePage from "./pages/Homepage";
 import UserAdminPage from "./pages/UsersAdminPage";
@@ -52,7 +53,7 @@ class App extends Component {
               {/* <PrivateRoute exact path="/protected" component={Users} /> */}
               <Route exact path="/users" userToken={this.state.userToken} component={Users} />
               <Route exact path="/create" component={CreateAccountForm} />
-              <Route exact path="/request" userToken={this.state.userToken} component={Dummy} />
+              <Route exact path="/request" userToken={this.state.userToken} component={CreateQuotePage} />
               <Route exact path="/login" render={(props) => <Login {...props} onLogin={this.setLogin.bind(this)} /> } />
               <Route exact path="/logout" component={Logout} />
               <Route exact path="/admin" userToken={this.state.userToken} component={AdminHomePage} />

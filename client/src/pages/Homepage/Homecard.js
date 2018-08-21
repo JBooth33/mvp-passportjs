@@ -3,6 +3,7 @@ import "../../css/main.css";
 import "../../css/noscript.css";
 
 
+
 const Card = props => (
   <div className="card" onClick={() => props.clickCount(props.id)}>
       <body className="is-preload">
@@ -55,7 +56,7 @@ const Card = props => (
                     <span className="image">
                       <img src="assets/images/pic03.jpg" alt="" />
                     </span>
-                    <a href="generic.html">
+                    <a href="/request">
                       <h2>Request Quote</h2>
                       <div className="content">
                         <p>Provide relevant information and customer service team will send you a quote momentarily.</p>
