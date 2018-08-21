@@ -54,7 +54,7 @@ class Nav extends Component {
           {/* <Link className="nav-link" to="/login">Login</Link> */}
         </span>
         <span>
-          <a className="nav-link" href="/signup">Sign up</a>
+          <a className="nav-link" href="/create">Sign up</a>
         </span>
       </div>
       )}
