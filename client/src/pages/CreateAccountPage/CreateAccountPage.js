@@ -90,24 +90,24 @@ class CreateAccountPage extends Component {
 <Row>
 <form id="signup-form" method="post" action="#">
 				<ul>
-        <input type="email" name="compnayName" id="companyName" placeholder="Company Name" />
+        <input type="text" name="compnayName" id="companyName" placeholder="Company Name" />
 <br></br>
-        <input type="email" name="companyAddress1" id="companyAddress1" placeholder="Company Address" />
+        <input type="text" name="companyAddress1" id="companyAddress1" placeholder="Company Address" />
  <br></br>
-        <input type="email" name="companyAddress2" id="companyAddress2" placeholder="Company Address" />
+        <input type="text" name="companyAddress2" id="companyAddress2" placeholder="Company Address" />
 <br></br>        
-        <input type="email" name="companyCity" id="companyCity" placeholder="City" />
+        <input type="text" name="companyCity" id="companyCity" placeholder="City" />
 <br></br>
-        <input type="email" name="companyState" id="companyState" placeholder="State" />
+        <input type="text" name="companyState" id="companyState" placeholder="State" />
  <br></br>
-        <input type="email" name="companyZip" id="companyZip" placeholder="Postal Code" />
+        <input type="text" name="companyZip" id="companyZip" placeholder="Postal Code" />
 
 <br></br>
-        <input type="email" name="companyURL" id="companyURL" placeholder="Company Website (URL)" />
+        <input type="text" name="companyURL" id="companyURL" placeholder="Company Website (URL)" />
 <br></br>
-        <input type="email" name="companyContact" id="companyContact" placeholder="Primary Contact" />
+        <input type="text" name="companyContact" id="companyContact" placeholder="Primary Contact" />
  <br></br>
-        <input type="email" name="companyContactPhone" id="companyContactPhone" placeholder="Primary Contact Phone Number" />
+        <input type="text" name="companyContactPhone" id="companyContactPhone" placeholder="Primary Contact Phone Number" />
 <br></br>
 </ul>
 </form>
@@ -118,11 +118,11 @@ class CreateAccountPage extends Component {
 <Row>
 <form id="signup-form" method="post" action="#">
 <ul>
-        <input type="email" name="userFirstName" id="userFirstName" placeholder="First Name" />
+        <input type="text" name="userFirstName" id="userFirstName" placeholder="First Name" />
  <br></br>
-        <input type="email" name="userLastName" id="userLastName" placeholder="Last Name" />
+        <input type="text" name="userLastName" id="userLastName" placeholder="Last Name" />
 <br></br>        
-        <input type="email" name="userTitle" id="userTitle" placeholder="Title" />
+        <input type="text" name="userTitle" id="userTitle" placeholder="Title" />
 <br></br>
         <fieldset>
                       <label>Role with MVP</label>
@@ -142,13 +142,13 @@ class CreateAccountPage extends Component {
         <input type="email" name="userEmail" id="userEmail" placeholder="E-mail Address" />
 
 <br></br>
-        <input type="email" name="userPhone" id="userPhone" placeholder="Phone Number" />
+        <input type="text" name="userPhone" id="userPhone" placeholder="Phone Number" />
 <br></br>
-        <input type="email" name="password" id="password" placeholder="Password" />
+        <input type="text" name="password" id="password" placeholder="Password" />
  <br></br>
-        <input type="email" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
+        <input type="text" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
 <br></br>
-        <input type="submit" value="Register" />
+        <input type="text" value="Register" />
 			  </ul>
                           </form>
                           </Row>
