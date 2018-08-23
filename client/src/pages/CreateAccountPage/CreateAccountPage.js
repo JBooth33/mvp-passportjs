@@ -85,10 +85,12 @@ class CreateAccountPage extends Component {
 				<p>All fields are required. </p>
 			</header>
 
-
-<Col s={6}>
 <Row>
+<Col xl={5}>
+
 <form id="signup-form" method="post" action="#">
+
+<h3>Company Information</h3>
 				<ul>
         <input type="text" name="compnayName" id="companyName" placeholder="Company Name" />
 <br></br>
@@ -111,12 +113,13 @@ class CreateAccountPage extends Component {
 <br></br>
 </ul>
 </form>
-</Row>
+
 </Col>
 
-<Col s={6}>
-<Row>
+<Col xl={5}>
+
 <form id="signup-form" method="post" action="#">
+<h3>User Information</h3>
 <ul>
         <input type="text" name="userFirstName" id="userFirstName" placeholder="First Name" />
  <br></br>
@@ -151,12 +154,11 @@ class CreateAccountPage extends Component {
         <input type="submit" value="Register" />
 			  </ul>
                           </form>
-                          </Row>
-</Col>
+                       </Col>
+</Row>
 
 
-
-              <p href="">Contact Support</p>
+              <a href="mailto:MVPInsightAdmin@mvpship.com">Contact Support</a>
                 
     </body>
 
