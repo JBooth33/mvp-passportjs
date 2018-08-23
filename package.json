@@ -40,6 +40,7 @@
     "mui-theme": "^0.1.4",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
+    "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-flexbox-grid": "^2.1.2",
     "react-scripts": "^1.1.5",
