@@ -148,7 +148,7 @@ class CreateAccountPage extends Component {
  <br></br>
         <input type="text" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
 <br></br>
-        <input type="text" value="Register" />
+        <input type="submit" value="Register" />
 			  </ul>
                           </form>
                           </Row>
