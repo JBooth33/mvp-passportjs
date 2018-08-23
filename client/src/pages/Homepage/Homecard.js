@@ -45,7 +45,7 @@ const Card = props => (
                     <span className="image">
                       <img src="assets/images/pic03.jpg" alt="" />
                     </span>
-                    <a href="../RequestQuote/RequestQuote.js">
+                    <a href="/request">
                       <h2>Request Quote</h2>
                       <div className="content">
                         <p>Provide relevant information and customer service team will send you a quote momentarily.</p>
