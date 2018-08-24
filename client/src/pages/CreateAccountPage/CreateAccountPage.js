@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Grid, Row, Col } from 'react-flexbox-grid';
-//import TextField from 'material-ui/TextField';
+import TextField from 'material-ui/TextField';
 import API from "../../utils/API";
 // import RaisedButton from 'material-ui/RaisedButton';
-//import SubmitButton from '../../components/SubmitButton';
-import "../../css/main.css";
-import "../../css/noscript.css";
+import SubmitButton from '../../components/SubmitButton';
 
 class CreateAccountPage extends Component {
   state = {
@@ -74,96 +71,168 @@ class CreateAccountPage extends Component {
   }
   render() {
     const { error } = this.state;
-
     return (
+      <Grid fluid>
+        <Row>
+          <Col xs={6} xsOffset={3}>
+            <form onSubmit={this.handleLogin}>
+              <h1>Welcome to MVP Insight Access Request Form</h1>
+              <h4> All fields marked with and * are required.</h4>
+              {error &&
+                <div>
+                  {error}
+                </div>
+              }
+              <div>
+                <TextField
+                  name="companyName"
+                  hintText="*Company Name"
+                  floatingLabelText="*Company Name"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+              <div>
+                <TextField
+                  name="companyAddress1"
+                  hintText="*Company Address Line 1"
+                  floatingLabelText="*Company Address Line 1"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+              <div>
+                <TextField
+                  name="companyAddress2"
+                  hintText="Company Address Line 2"
+                  floatingLabelText="Company Address Line 2"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
 
-        <body className="is-preload">
+              <div>
+                <TextField
+                  name="companyCity"
+                  hintText="*City"
+                  floatingLabelText="*City"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+              <div>
+                <TextField
+                  name="companyState"
+                  hintText="*State"
+                  floatingLabelText="*State"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+              <div>
+                <TextField
+                  name="companyZip"
+                  hintText="*Zip Code (5 digits)"
+                  floatingLabelText="*Zip Code (5 digits)"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+              <div>
+                <TextField
+                  name="companyContact"
+                  hintText="Primary Company Contact"
+                  floatingLabelText="Primary Company Contact"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+              <div>
+                <TextField
+                  name="companyContactPhone"
+                  hintText="Company Contact Phone"
+                  floatingLabelText="Company Contact Phone"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+            </form>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={6} xsOffset={3}>
+            <form onSubmit={this.handleLogin}>
+              <div>
+                <TextField
+                  name="userFirstName"
+                  hintText="*First Name"
+                  floatingLabelText="*First Name"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+              <div>
+                <TextField
+                  name="userLastName"
+                  hintText="*Last Name"
+                  floatingLabelText="*Last Name"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+              <div>
+                <TextField
+                  name="userTitle"
+                  hintText="Current Title"
+                  floatingLabelText="Current Title"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
 
+              <div>
+                <TextField
+                  name="userRole"
+                  hintText="*Role with MVP"
+                  floatingLabelText="*Role with MVP"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
 
-			<header id="header">
-				<h1>Welcome to MVP Insight Access Request Form</h1>
-				<p>All fields are required. </p>
-			</header>
+              <div>
+                <TextField
+                  name="userEmail"
+                  hintText="*Email Address"
+                  floatingLabelText="*Email Address"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+              <div>
+                <TextField
+                  name="userPhone"
+                  hintText="*Phone Number"
+                  floatingLabelText="*Phone Number"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
 
-<Row>
-<Col xl={5}>
+              <div>
+                <TextField
+                  name="password"
+                  hintText="*Password"
+                  floatingLabelText="*Password"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
 
-<form id="signup-form" method="post" action="#">
+              <div>
+                <TextField
+                  name="confirmPassword"
+                  hintText="*Confirm Password"
+                  floatingLabelText="*Confirm Password"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
 
-<h3>Company Information</h3>
-				<ul>
-        <input type="text" name="compnayName" id="companyName" placeholder="Company Name" />
-<br></br>
-        <input type="text" name="companyAddress1" id="companyAddress1" placeholder="Company Address" />
- <br></br>
-        <input type="text" name="companyAddress2" id="companyAddress2" placeholder="Company Address" />
-<br></br>        
-        <input type="text" name="companyCity" id="companyCity" placeholder="City" />
-<br></br>
-        <input type="text" name="companyState" id="companyState" placeholder="State" />
- <br></br>
-        <input type="text" name="companyZip" id="companyZip" placeholder="Postal Code" />
-
-<br></br>
-        <input type="text" name="companyURL" id="companyURL" placeholder="Company Website (URL)" />
-<br></br>
-        <input type="text" name="companyContact" id="companyContact" placeholder="Primary Contact" />
- <br></br>
-        <input type="text" name="companyContactPhone" id="companyContactPhone" placeholder="Primary Contact Phone Number" />
-<br></br>
-</ul>
-</form>
-
-</Col>
-
-<Col xl={5}>
-
-<form id="signup-form" method="post" action="#">
-<h3>User Information</h3>
-<ul>
-        <input type="text" name="userFirstName" id="userFirstName" placeholder="First Name" />
- <br></br>
-        <input type="text" name="userLastName" id="userLastName" placeholder="Last Name" />
-<br></br>        
-        <input type="text" name="userTitle" id="userTitle" placeholder="Title" />
-<br></br>
-        <fieldset>
-                      <label>Role with MVP</label>
-                         <select id = "myList">
-                           <option value = "1">Warehouse</option>
-                           <option value = "2">Logisitics</option>
-                           <option value = "3">Carrier</option>
-                           <option value = "4">Supply Chain Management</option>
-                           <option value = "5">Supply Chain Specialist</option>
-                           <option value = "6">TT Access</option>
-                           <option value = "7">MVP Team Member</option>
-                           <option value = "8">MVP Admin</option>
-                        </select>
-            
-        </fieldset>
- <br></br>
-        <input type="email" name="userEmail" id="userEmail" placeholder="E-mail Address" />
-
-<br></br>
-        <input type="text" name="userPhone" id="userPhone" placeholder="Phone Number" />
-<br></br>
-        <input type="text" name="password" id="password" placeholder="Password" />
- <br></br>
-        <input type="text" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" />
-<br></br>
-        <input type="submit" value="Register" />
-			  </ul>
-                          </form>
-                       </Col>
-</Row>
-
-
-              <a href="mailto:MVPInsightAdmin@mvpship.com">Contact Support</a>
-                
-    </body>
-
+              <div>
+                <SubmitButton primary type="submit" onClick={this.handleLogin}>
+                  Log In
+                </SubmitButton>
+              </div>
+            </form>
+          </Col>
+        </Row>
+      </Grid>
     );
   }
 }
-
-export default CreateAccountPage;
+export default CreateAccountPage
