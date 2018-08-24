@@ -3,8 +3,6 @@ import "../../css/main.css";
 import "../../css/noscript.css";
 
 
-
-
 const Card = props => (
   <div className="card" onClick={() => props.clickCount(props.id)}>
       <body className="is-preload">
@@ -45,14 +43,14 @@ const Card = props => (
                     <span className="image">
                       <img src="assets/images/pic03.jpg" alt="" />
                     </span>
-                    <a href="/request">
+                    <a href="../RequestQuote/RequestQuote.js">
                       <h2>Request Quote</h2>
                       <div className="content">
                         <p>Provide relevant information and customer service team will send you a quote momentarily.</p>
                       </div>
                     </a>
                   </article>
-                  <article className="style4">
+                  <article className="style2">
                     <span className="image">
                       <img src="assets/images/pic04.jpg" alt="" />
                     </span>
@@ -63,7 +61,7 @@ const Card = props => (
                       </div>
                     </a>
                   </article>
-                  <article className="style5">
+                  <article className="style3">
                     <span className="image">
                       <img src="assets/images/pic05.jpg" alt="" />
                     </span>
@@ -74,7 +72,7 @@ const Card = props => (
                       </div>
                     </a>
                   </article>
-                  <article className="style6">
+                  <article className="style1">
                     <span className="image">
                       <img src="assets/images/pic06.jpg" alt="" />
                     </span>
@@ -85,7 +83,7 @@ const Card = props => (
                       </div>
                     </a>
                   </article>
-                  <article className="style2">
+                  <article className="style3">
                     <span className="image">
                       <img src="assets/images/pic07.jpg" alt="" />
                     </span>
@@ -96,7 +94,7 @@ const Card = props => (
                       </div>
                     </a>
                   </article>
-                  <article className="style3">
+                  <article className="style1">
                     <span className="image">
                       <img src="assets/images/pic08.jpg" alt="" />
                     </span>
@@ -107,7 +105,7 @@ const Card = props => (
                       </div>
                     </a>
                   </article>
-                  <article className="style1">
+                  <article className="style2">
                     <span className="image">
                       <img src="assets/images/pic09.jpg" alt="" />
                     </span>
@@ -118,7 +116,7 @@ const Card = props => (
                       </div>
                     </a>
                   </article>
-                  <article className="style5">
+                  <article className="style1">
                     <span className="image">
                       <img src="assets/images/pic10.jpg" alt="" />
                     </span>
@@ -129,7 +127,7 @@ const Card = props => (
                       </div>
                     </a>
                   </article>
-                  <article className="style6">
+                  <article className="style2">
                     <span className="image">
                       <img src="assets/images/pic11.jpg" alt="" />
                     </span>
@@ -140,7 +138,7 @@ const Card = props => (
                       </div>
                     </a>
                   </article>
-                  <article className="style4">
+                  <article className="style3">
                     <span className="image">
                       <img src="/assets/images/pic12.jpg" alt="" />
                     </span>
