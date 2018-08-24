@@ -2,31 +2,31 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 import TextField from 'material-ui/TextField';
-import API from "../../utils/API";
+// import API from "../../utils/API";
 import "../../css/main.css";
 import "../../css/noscript.css";
 import RaisedButton from 'material-ui/RaisedButton';
 // import SubmitButton from '../../components/SubmitButton';
 
 class CreateQuotePage extends Component {
-  // state = {
-  //   originZip: null,
-  //   destinationZip: null,
-  //   weight: null,
-  //   classification: null,
-  //   dimensions: null,
-  //   pieces: null,
-  //   hazMat: null,
-  //   specialRequest: null,
-  //   specialInstructions: null
+  state = {
+    originZip: null,
+    destinationZip: null,
+    weight: null,
+    classification: null,
+    dimensions: null,
+    pieces: null,
+    hazMat: null,
+    specialRequest: null,
+    specialInstructions: null
 
-  // }
-  //  handleInputChanged = (event) => {
-  //   this.setState({
-  //     [event.target.name]: event.target.value
-  //   });
-  // }
-  handleSubmit = (event) => {
+  }
+   handleInputChanged = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  }
+  handleSubmit(event){
     event.preventDefault();
     const originZip = document.getElementById('originZip').value;
     const destinationZip = document.getElementById('destinationZip').value;

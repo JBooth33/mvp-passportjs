@@ -46,13 +46,13 @@ router.post('/request', (req, res, next) => {
   var hazMat = req.body.hazMat
   var specialRequest = req.body.specialRequest
   var specialInstructions = req.body.specialInstructions
-  var content = `name: ${name} \n email: ${email} \n originZip: ${content} \n weight: ${content} \n classification: ${content} \n dimensions: ${content} \n pieces: ${content} \n hazMat: ${content} \n specialRequest: ${content} \n specialInstructions: ${content}`
+  var content = `name: ${name} \n email: ${email} \n originZip: ${content} \n destinationZip: ${content} \n weight: ${content} \n classification: ${content} \n dimensions: ${content} \n pieces: ${content} \n hazMat: ${content} \n specialRequest: ${content} \n specialInstructions: ${content}`
 
 
   var mail = {
     from: name,
     to: 'neritasung@gmail.com',  //Change to email address that you want to receive messages on
-    subject: 'New Message from Contact Form',
+    subject: 'New Message from Request Quote Form',
     text: content
   }
 
