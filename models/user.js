@@ -4,18 +4,16 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   companyName: { type: String, required: true},
-  companyAddress1: { type: String, required: true},
-  CompanyAddress2: { type: String, required: false},
-  companyCity: { type: String, required: true},
-  companyState: { type: String, required: true},
-  companyZip: { type: String, required: true},
-  companyURL: { type: String, required: true},
+  companyAddress1: {type: String, required: true},
+  companyCity: {type: String, required: true},
+  companyState: {type: String, required: true},
+  companyZip: {type: String, required: true},
   companyContact: {type: String, required: true},
   companyContactPhone: {type: String, required: true},
   firstName: { type: String, required: true },
   lastName: { type: String, required: true},
   title: { type: String},
-  role: { type: Number, required: true},
+  role: { type: String, required: true},
   email: {
     type: String,
     index: { unique: true }
