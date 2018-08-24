@@ -129,7 +129,7 @@ class CreateAccountPage extends Component {
 <br></br>
         <fieldset>
                       <label>Role with MVP</label>
-                         <select id = "myList">
+                         <select id = "myList" name="role">
                            <option value = "1">Warehouse</option>
                            <option value = "2">Logisitics</option>
                            <option value = "3">Carrier</option>
