@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.use(express.static("client/build"));
 // pass the passport middleware
 app.use(passport.initialize());
+app.enable("trust proxy");
 
 // load passport strategies
 const localSignupStrategy = require('./passport/local-signup');
