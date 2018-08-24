@@ -40,7 +40,7 @@ class CreateQuotePage extends Component {
 
     // post an auth request
     axios({
-      ethod: "POST",
+      method: "POST",
       url: "http://localhost:3002/request",
       data: {
         originZip: originZip,
