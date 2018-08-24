@@ -8,332 +8,168 @@ import "../../css/noscript.css";
 import RaisedButton from 'material-ui/RaisedButton';
 // import SubmitButton from '../../components/SubmitButton';
 
- class CreateQuotePage extends Component {
-  state = {
-    fromName: null,
-    fromAddress1: null,
-    fromAddress2: null,
-    fromCity: null,
-    fromState: null,
-    fromZip: null,
-    fromContact: null,
-    fromPhone: null,
-    toName: null,
-    toAddress1: null,
-    toAddress2: null,
-    toCity: null,
-    toState: null,
-    toZip: null,
-    toContact: null,
-    toPhone: null,
-    estPickup: null,
-    estDelivery: null,
-    contentDesc: null,
-    contentWeight: null,
-    contentQuantity: null,
-    contentUoM: null,
-    specialInstruct: null
-  }
-   handleInputChanged = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  }
-  handleLogin = (event) => {
+class CreateQuotePage extends Component {
+  // state = {
+  //   originZip: null,
+  //   destinationZip: null,
+  //   weight: null,
+  //   classification: null,
+  //   dimensions: null,
+  //   pieces: null,
+  //   hazMat: null,
+  //   specialRequest: null,
+  //   specialInstructions: null
+
+  // }
+  //  handleInputChanged = (event) => {
+  //   this.setState({
+  //     [event.target.name]: event.target.value
+  //   });
+  // }
+  handleSubmit = (event) => {
     event.preventDefault();
-     const { fromName,
-      fromAddress1,
-      fromAddress2,
-      fromCity,
-      fromState,
-      fromZip,
-      fromContact,
-      fromPhone,
-      toName,
-      toAddress1,
-      toAddress2,
-      toCity,
-      toState,
-      toZip,
-      toContact,
-      toPhone,
-      estPickup,
-      estDelivery,
-      contentDesc,
-      contentWeight,
-      contentQuantity,
-      contentUoM,
-      specialInstruct} = this.state;
-    const { history } = this.props;
-     // post an auth request
-    API.saveQuote('/api/auth', {
-      fromName,
-      fromAddress1,
-      fromAddress2,
-      fromCity,
-      fromState,
-      fromZip,
-      fromContact,
-      fromPhone,
-      toName,
-      toAddress1,
-      toAddress2,
-      toCity,
-      toState,
-      toZip,
-      toContact,
-      toPhone,
-      estPickup,
-      estDelivery,
-      contentDesc,
-      contentWeight,
-      contentQuantity,
-      contentUoM,
-      specialInstruct
+    const originZip = document.getElementById('originZip').value;
+    const destinationZip = document.getElementById('destinationZip').value;
+    const weight = document.getElementById('weight').value;
+    const classification = document.getElementById('classification').value;
+    const dimensions = document.getElementById('dimensions').value;
+    const pieces = document.getElementById('pieces').value;
+    const hazMat = document.getElementById('hazMat').value;
+    const specialRequest = document.getElementById('specialRequest').value;
+    const specialInstructions = document.getElementById('specialInstructions').value;
+
+    // post an auth request
+    axios({
+      ethod: "POST",
+      url: "http://localhost:3002/request",
+      data: {
+        originZip: originZip,
+        destinationZip: destinationZip,
+        weight: weight,
+        classification: classification,
+        dimensions: dimensions,
+        pieces: pieces,
+        hazMat: hazMat,
+        specialRequest: specialRequest,
+        specialInstructions: specialInstructions
+      }
+    }).then((response) => {
+      if (response.data.msg === 'success') {
+        alert("Message Sent.");
+        this.resetForm()
+      } else if (response.data.msg === 'fail') {
+        alert("Message failed to send.")
+      }
     })
-    .then(user => {
-      // if the response is successful, update the current user and redirect to the home page
-     // update(user.data);
-      history.push('/');
-    })
-    .catch(err => {
-      // an error occured, so let's record the error in our state so we can display it in render
-      // if the error response status code is 401, it's an invalid username or password.
-      // if it's any other status code, there's some other unhandled error so we'll just show
-      // the generic message.
-      this.setState({
-        error: err.response.status === 401 ? 'Please review your input and resubmit. Thank You. Call us direct if you still experieince issues.' : err.message
-      });
-    });
   }
-   render() {
-    const { error } = this.state;
-     return (
+  resetForm() {
+    document.getElementById('request-form').reset();
+  }
+
+  render() {
+    // const { error } = this.state;
+    return (
       <Grid fluid>
         <Row>
           <Col xs={6} xsOffset={3}>
-            <form onSubmit={this.handleLogin}>
+            <form id="request-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
               <h1>Online Quote Request</h1>
               <h4> All fields are required in order to get a timely quote.</h4>
-              {error &&
-                <div>
-                  {error}
-                </div>
-              }
+              {/* {error &&
+              <div>
+                {error}
+              </div>
+            } */}
               <div>
                 <TextField
-                  name="fromName"
-                  hintText="Shipper Name"
-                  floatingLabelText="*Shipper Name"
+                  name="originZip"
+                  id="originZip"
+                  hintText="Origin Zip Code"
+                  floatingLabelText="Origin Zip Code"
                   onChange={this.handleInputChanged}
                 />
               </div>
               <div>
                 <TextField
-                  name="fromAddress1"
-                  hintText="From Address Line 1"
-                  floatingLabelText="From Address Line 1"
+                  name="destinationZip"
+                  id="destinationZip"
+                  hintText="Desitination Zip Code"
+                  floatingLabelText="Destination Zip Code"
                   onChange={this.handleInputChanged}
                 />
               </div>
               <div>
                 <TextField
-                  name="fromAddress2"
-                  hintText="From Address Line 2"
-                  floatingLabelText="From Address Line 2"
+                  name="weight"
+                  id="weight"
+                  hintText="Shipment Weight"
+                  floatingLabelText="Shipment Weight"
                   onChange={this.handleInputChanged}
                 />
               </div>
-              
-              <div>
-                <TextField
-                  name="fromCity"
-                  hintText="From City"
-                  floatingLabelText="From City"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="fromState"
-                  hintText="From State"
-                  floatingLabelText="From State"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="fromZip"
-                  hintText="From Zip Code (5 digits)"
-                  floatingLabelText="From Zip Code (5 digits)"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="fromContact"
-                  hintText="From Contact"
-                  floatingLabelText="From Contact"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="fromPhone"
-                  hintText="From Contact Phone"
-                  floatingLabelText="From Contact Phone"
-                  onChange={this.handleInputChanged}
-                />
-                </div>
-            </form>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={6} xsOffset={3}>
-            <form onSubmit={this.handleLogin}>
-              {error &&
-                <div>
-                  {error}
-                </div>
-              }
-              <div>
-                <TextField
-                  name="toName"
-                  hintText="Receiver Name"
-                  floatingLabelText="Receiver Name"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="toAddress1"
-                  hintText="To Address Line 1"
-                  floatingLabelText="To Address Line 1"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="toAddress2"
-                  hintText="To Address Line 2"
-                  floatingLabelText="To Address Line 2"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              
-              <div>
-                <TextField
-                  name="toCity"
-                  hintText="To City"
-                  floatingLabelText="To City"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="toState"
-                  hintText="To State"
-                  floatingLabelText="To State"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="toZip"
-                  hintText="To Zip Code (5 digits)"
-                  floatingLabelText="To Zip Code (5 digits)"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="toContact"
-                  hintText="To Contact"
-                  floatingLabelText="To Contact"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="toPhone"
-                  hintText="To Contact Phone"
-                  floatingLabelText="To Contact Phone"
-                  onChange={this.handleInputChanged}
-                />
-                </div>
-            </form>
-          </Col>
-        </Row>
-         <Row>
-          <Col xs={6} xsOffset={3}>
-            <form onSubmit={this.handleLogin}>
-               <div>
-                <TextField
-                  name="estPickup"
-                  hintText="*First Name"
-                  floatingLabelText="*First Name"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="estDelivery"
-                  hintText="*Last Name"
-                  floatingLabelText="*Last Name"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="contentDesc"
-                  hintText="Current Title"
-                  floatingLabelText="Current Title"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              
-              <div>
-                <TextField
-                  name="contentWeight"
-                  hintText="*Role with MVP"
-                  floatingLabelText="*Role with MVP"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              
-              <div>
-                <TextField
-                  name="contentQuantity"
-                  hintText="*Email Address"
-                  floatingLabelText="*Email Address"
-                  onChange={this.handleInputChanged}
-                />
-              </div>
-              <div>
-                <TextField
-                  name="contentUoM"
-                  hintText="*Phone Number"
-                  floatingLabelText="*Phone Number"
-                  onChange={this.handleInputChanged}
-                />
-                </div>
 
-                <div>
+              <div>
                 <TextField
-                  name="specialInstruct"
-                  hintText="*Password"
-                  floatingLabelText="*Password"
+                  name="classification"
+                  id="classification"
+                  hintText="Shipment Class"
+                  floatingLabelText="Shipment Class"
                   onChange={this.handleInputChanged}
                 />
-                </div>
+              </div>
+              <div>
+                <TextField
+                  name="dimensions"
+                  id="dimensions"
+                  hintText="Shipment Dimensions"
+                  floatingLabelText="Shipment Dimensions"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+              <div>
+                <TextField
+                  name="pieces"
+                  id="pieces"
+                  hintText="Number of Pieces"
+                  floatingLabelText="Number of Pieces"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+              <div>
+                <TextField
+                  name="hazMat"
+                  id="hazMat"
+                  hintText="Hazard Materials (Y/N)"
+                  floatingLabelText="Hazard Materials (Y/N)"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+              <div>
+                <TextField
+                  name="specialRequest"
+                  id="specialRequest"
+                  hintText="Special Requests/Needs"
+                  floatingLabelText="Special Requests/Needs"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
 
-                
-                <div>
+              <div>
+                <TextField
+                  name="specialInstructions"
+                  id="specialInstructions"
+                  hintText="Special Instructions"
+                  floatingLabelText="Special Instructions"
+                  onChange={this.handleInputChanged}
+                />
+              </div>
+
+              <div>
                 <RaisedButton primary type="submit">
-                 Submit Quote Request
+                  Submit Quote Request
                 </RaisedButton>
               </div>
-             </form>
+            </form>
           </Col>
         </Row>
       </Grid>
