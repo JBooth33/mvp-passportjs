@@ -90,16 +90,16 @@ class CreateAccountPage extends Component {
               <div>
                 <TextField
                   name="companyName"
-                  hintText="*Company Name"
-                  floatingLabelText="*Company Name"
+                  hintText="Company Name"
+                  floatingLabelText="Company Name"
                   onChange={this.handleInputChanged}
                 />
               </div>
               <div>
                 <TextField
                   name="companyAddress1"
-                  hintText="*Company Address Line 1"
-                  floatingLabelText="*Company Address Line 1"
+                  hintText="Company Address Line 1"
+                  floatingLabelText="Company Address Line 1"
                   onChange={this.handleInputChanged}
                 />
               </div>
@@ -115,24 +115,24 @@ class CreateAccountPage extends Component {
               <div>
                 <TextField
                   name="companyCity"
-                  hintText="*City"
-                  floatingLabelText="*City"
+                  hintText="City"
+                  floatingLabelText="City"
                   onChange={this.handleInputChanged}
                 />
               </div>
               <div>
                 <TextField
                   name="companyState"
-                  hintText="*State"
-                  floatingLabelText="*State"
+                  hintText="State"
+                  floatingLabelText="State"
                   onChange={this.handleInputChanged}
                 />
               </div>
               <div>
                 <TextField
                   name="companyZip"
-                  hintText="*Zip Code (5 digits)"
-                  floatingLabelText="*Zip Code (5 digits)"
+                  hintText="Zip Code (5 digits)"
+                  floatingLabelText="Zip Code (5 digits)"
                   onChange={this.handleInputChanged}
                 />
               </div>
@@ -160,16 +160,16 @@ class CreateAccountPage extends Component {
               <div>
                 <TextField
                   name="userFirstName"
-                  hintText="*First Name"
-                  floatingLabelText="*First Name"
+                  hintText="First Name"
+                  floatingLabelText="First Name"
                   onChange={this.handleInputChanged}
                 />
               </div>
               <div>
                 <TextField
                   name="userLastName"
-                  hintText="*Last Name"
-                  floatingLabelText="*Last Name"
+                  hintText="Last Name"
+                  floatingLabelText="Last Name"
                   onChange={this.handleInputChanged}
                 />
               </div>
@@ -185,8 +185,8 @@ class CreateAccountPage extends Component {
               <div>
                 <TextField
                   name="userRole"
-                  hintText="*Role with MVP"
-                  floatingLabelText="*Role with MVP"
+                  hintText="Role with MVP"
+                  floatingLabelText="Role with MVP"
                   onChange={this.handleInputChanged}
                 />
               </div>
@@ -194,16 +194,16 @@ class CreateAccountPage extends Component {
               <div>
                 <TextField
                   name="userEmail"
-                  hintText="*Email Address"
-                  floatingLabelText="*Email Address"
+                  hintText="Email Address"
+                  floatingLabelText="Email Address"
                   onChange={this.handleInputChanged}
                 />
               </div>
               <div>
                 <TextField
                   name="userPhone"
-                  hintText="*Phone Number"
-                  floatingLabelText="*Phone Number"
+                  hintText="Phone Number"
+                  floatingLabelText="Phone Number"
                   onChange={this.handleInputChanged}
                 />
               </div>
@@ -211,8 +211,8 @@ class CreateAccountPage extends Component {
               <div>
                 <TextField
                   name="password"
-                  hintText="*Password"
-                  floatingLabelText="*Password"
+                  hintText="Password"
+                  floatingLabelText="Password"
                   onChange={this.handleInputChanged}
                 />
               </div>
@@ -220,8 +220,8 @@ class CreateAccountPage extends Component {
               <div>
                 <TextField
                   name="confirmPassword"
-                  hintText="*Confirm Password"
-                  floatingLabelText="*Confirm Password"
+                  hintText="Confirm Password"
+                  floatingLabelText="Confirm Password"
                   onChange={this.handleInputChanged}
                 />
               </div>
