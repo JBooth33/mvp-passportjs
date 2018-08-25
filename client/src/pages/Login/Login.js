@@ -111,7 +111,7 @@ class Login extends Component {
           </div>
           <p className="mt-5 mb-3">
             Don't have an account?&nbsp;&nbsp;
-            <Link to={"/signup"}>Sign Up</Link>
+            <Link to={"/create"}>Sign Up</Link>
           </p>
         </form>
       </Container>

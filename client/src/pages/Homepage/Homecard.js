@@ -110,7 +110,7 @@ const Card = props => (
                       <img src="assets/images/pic09.jpg" alt="" />
                     </span>
                     <a href="mailto:info@mvpship.com">
-                      <h2>NMVP Service</h2>
+                      <h2>MVP Service</h2>
                       <div className="content">
                         <p>Let us support your local delivery and service needs</p>
                       </div>
