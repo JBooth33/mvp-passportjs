@@ -57,12 +57,10 @@ app.use(routes);
 
 // Set up promises with mongoose
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/mvp";
-
-// Set mongoose to leverage built in JavaScript ES6 Promises
+mongoose.Promise = global.Promise;
 // Connect to the Mongo DB
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost:27017/mvp"
   // {
   //   useMongoClient: true
   // }
