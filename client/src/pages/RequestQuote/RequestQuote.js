@@ -40,7 +40,7 @@ import RaisedButton from 'material-ui/RaisedButton';
       
     const { history } = this.props;
      // post an auth request
-    API.saveQuote('/api/auth', {
+    API.saveQuote{
       originZip,
       destinationZip,
       weight,
