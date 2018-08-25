@@ -34,7 +34,13 @@ class Nav extends Component {
           <li className="nav-item active">
             <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
           </li>
+<<<<<<< HEAD
           
+=======
+          <li className="nav-item">
+            <a className="nav-link" href="/admin">Admin</a>
+          </li>
+>>>>>>> 9c5d52f11735ab972dbb36a6a5b9576c5333551e
         </ul>
         <span className="navbar-text">
           <a className="nav-link" href="/logout">Logout</a>
