@@ -4,6 +4,8 @@ import TextField from 'material-ui/TextField';
 import API from "../../utils/API";
 // import RaisedButton from 'material-ui/RaisedButton';
 import SubmitButton from '../../components/SubmitButton';
+import "../../css/main.css";
+import "../../css/noscript.css";
 
 class CreateAccountPage extends Component {
   state = {
@@ -72,17 +74,19 @@ class CreateAccountPage extends Component {
   render() {
     const { error } = this.state;
     return (
-      <Grid fluid>
-        <Row>
-          <Col xs={6} xsOffset={3}>
-            <form onSubmit={this.handleLogin}>
-              <h1>Welcome to MVP Insight Access Request Form</h1>
-              <h4> All fields marked with and * are required.</h4>
-              {error &&
-                <div>
-                  {error}
-                </div>
-              }
+
+      <body className="is-preload">
+
+
+			<header id="header">
+				<h1>Welcome to MVP Insight Access Request Form</h1>
+				<p>All fields are required. </p>
+			</header>
+
+
+<Row>
+<Col xl={5}>
+<h3>Company Information</h3>
               <div>
                 <TextField
                   name="companyName"
@@ -148,12 +152,11 @@ class CreateAccountPage extends Component {
                   onChange={this.handleInputChanged}
                 />
               </div>
-            </form>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={6} xsOffset={3}>
-            <form onSubmit={this.handleLogin}>
+ 
+</Col>
+
+<Col xl={5}>
+<h3>User Information</h3>
               <div>
                 <TextField
                   name="userFirstName"
@@ -222,16 +225,20 @@ class CreateAccountPage extends Component {
                   onChange={this.handleInputChanged}
                 />
               </div>
-
+<br></br>
               <div>
                 <SubmitButton primary type="submit" onClick={this.handleLogin}>
                   Log In
                 </SubmitButton>
               </div>
-            </form>
-          </Col>
-        </Row>
-      </Grid>
+              
+              </Col>
+</Row>
+
+
+              <a href="mailto:MVPInsightAdmin@mvpship.com">Contact Support</a>
+                
+    </body>
     );
   }
 }
